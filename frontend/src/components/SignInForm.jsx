@@ -51,7 +51,8 @@ const SignInForm = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
       <div className="w-full max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg">
-        <h2 className="text-3xl font-semibold text-center text-gray-800">Sign In to Celebration</h2>
+        <h2 className="text-3xl font-semibold text-center text-gray-800">Sign In  Page
+</h2>
         <p className="text-center text-gray-600 mt-2">Resister first OR Use email : user1@gmail.com and password : sidd</p>
 
         {error && <p className="mt-4 text-base text-red-600">{error}</p>}
