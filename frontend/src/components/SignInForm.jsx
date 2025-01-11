@@ -49,67 +49,63 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center px-4 py-10 bg-white sm:px-6 lg:px-8 sm:py-16 lg:py-24">
-      <div className="xl:w-full xl:max-w-sm 2xl:max-w-md xl:mx-auto">
-        <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">Sign In to Celebration</h2>
-        {error && <p className="mt-2 text-base text-red-600">{error}</p>}
-        {success && <p className="mt-2 text-base text-green-600">{success}</p>}
-        <form onSubmit={handleSubmit} className="mt-8">
-          <div className="space-y-5">
-            <div>
-              <label htmlFor="username" className="text-base font-medium text-gray-900">
-                Email
-              </label>
-              <div className="mt-2.5">
-                <input
-                  type="email"
-                  name="username"
-                  id="username"
-                  placeholder="Enter your email"
-                  value={formData.username}
-                  onChange={handleInputChange}
-                  className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
-                  required
-                />
-              </div>
-            </div>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+      <div className="w-full max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg">
+        <h2 className="text-3xl font-semibold text-center text-gray-800">Sign In to Celebration</h2>
+        <p className="text-center text-gray-600 mt-2">Resister first OR Use email : user1@gmail.com and password : sidd</p>
 
-            <div>
-              <label htmlFor="password" className="text-base font-medium text-gray-900">
-                Password
-              </label>
-              <div className="mt-2.5">
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Enter your password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
-                  required
-                />
-              </div>
-            </div>
-                <Link className='py-3 ' to={'/sign-up'}>you want to resister ?</Link>
+        {error && <p className="mt-4 text-base text-red-600">{error}</p>}
+        {success && <p className="mt-4 text-base text-green-600">{success}</p>}
 
-            <div>
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700"
-                disabled={loading}
-              >
-                {loading ? "Loading..." : "Login"}
-              </button>
-            </div>
+        <form onSubmit={handleSubmit} className="mt-6 space-y-6">
+          <div>
+            <label htmlFor="username" className="block text-gray-700 text-sm font-medium">Email</label>
+            <input
+              type="email"
+              name="username"
+              id="username"
+              placeholder="Enter your email"
+              value={formData.username}
+              onChange={handleInputChange}
+              className="w-full mt-2 p-4 border border-gray-300 rounded-lg bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
           </div>
+
+          <div>
+            <label htmlFor="password" className="block text-gray-700 text-sm font-medium">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter your password"
+              value={formData.password}
+              onChange={handleInputChange}
+              className="w-full mt-2 p-4 border border-gray-300 rounded-lg bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+
+          <div className="text-right">
+            <Link to="/sign-up" className="text-sm text-blue-500 hover:text-blue-700">Don't have an account? Sign up</Link>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-4 mt-6 text-base font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            disabled={loading}
+          >
+            {loading ? "Loading..." : "Login"}
+          </button>
         </form>
-      {success?<button
-          type="button"
-          className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700"
-        >
-          {success}
-        </button>:<div></div>}  
+
+        {success && (
+          <div className="mt-4">
+            <button className="w-full py-4 text-base font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700">
+              {success}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

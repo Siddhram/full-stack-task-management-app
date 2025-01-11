@@ -40,57 +40,53 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center px-4 py-10 bg-white sm:px-6 lg:px-8 sm:py-16 lg:py-24">
-      <div className="xl:w-full xl:max-w-sm 2xl:max-w-md xl:mx-auto">
-        <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">Sign up to Celebration</h2>
-        {errorMessage && <p className="mt-2 text-base text-red-600">{errorMessage}</p>}
-        {success && <p className="mt-2 text-base text-green-600">{success}</p>}
-        <form onSubmit={handleSubmit} className="mt-8">
-          <div className="space-y-5">
+    <div className="flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 h-screen">
+      <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">Create Your Account</h2>
+        {errorMessage && <p className="text-base text-red-600 text-center mb-3">{errorMessage}</p>}
+        {success && <p className="text-base text-green-600 text-center mb-3">{success}</p>}
+        <form onSubmit={handleSubmit}>
+          <div className="space-y-6">
             <div>
-              <label htmlFor="username" className="text-base font-medium text-gray-900">
-                Email
-              </label>
-              <div className="mt-2.5">
-                <input
-                  type="email"
-                  name="username"
-                  id="username"
-                  placeholder="Enter your email"
-                  value={formData.username}
-                  onChange={handleInputChange}
-                  className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
-                  required
-                />
-              </div>
+              <label htmlFor="username" className="text-base font-medium text-gray-700">Email Address</label>
+              <input
+                type="email"
+                name="username"
+                id="username"
+                placeholder="Enter your email"
+                value={formData.username}
+                onChange={handleInputChange}
+                className="block w-full p-4 mt-2 text-gray-800 placeholder-gray-400 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
             </div>
 
             <div>
-              <label htmlFor="password" className="text-base font-medium text-gray-900">
-                Password
-              </label>
-              <div className="mt-2.5">
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Enter your password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
-                  required
-                />
-              </div>
+              <label htmlFor="password" className="text-base font-medium text-gray-700">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleInputChange}
+                className="block w-full p-4 mt-2 text-gray-800 placeholder-gray-400 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
             </div>
-                <Link className='py-3' to={'/sign-in'}>you want to Login ?</Link>
 
-            <div>
+            <div className="text-center">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700"
+                className="w-full py-4 text-white font-semibold bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                Create free account
+                Create Account
               </button>
+            </div>
+
+            <div className="text-center mt-4">
+              <p className="text-sm text-gray-600">Already have an account?</p>
+              <Link to="/sign-in" className="text-blue-600 hover:underline">Sign In</Link>
             </div>
           </div>
         </form>
