@@ -1,4 +1,4 @@
 function frontendurl(){
-   return "http://localhost:5000";
+   return "https://full-stack-task-management-app-0x43.onrender.com";
 }
 export default  frontendurl;
