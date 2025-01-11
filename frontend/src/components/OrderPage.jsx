@@ -24,8 +24,11 @@ const OrderPage = () => {
 
     fetchOrders();
   }, []);
+if(orders.length==0){
+    return <div>Loading...</div>
+}
+console.log(orders);
 
-  if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
@@ -54,10 +57,10 @@ const OrderPage = () => {
           <ul>
             {order.items.map((item) => (
               <li key={item._id} style={{ marginBottom: '10px' }}>
-                <strong>{item.menuItemId.name}</strong> 
-                <p>Category: {item.menuItemId.category}</p>
-                <p>Price: ${item.menuItemId.price}</p>
-                <p>Quantity: {item.quantity}</p>
+                <strong>{item.menuItemId?.name}</strong> 
+                <p>Category: {item.menuItemId?.category}</p>
+                <p>Price: ${item.menuItemId?.price}</p>
+                <p>Quantity: {item?.quantity}</p>
               </li>
             ))}
           </ul>
